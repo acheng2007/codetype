@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>CODE_TYPE - Performance Review</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&amp;family=Geist:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "on-surface": "#dfe2eb",
+                        "surface-dim": "#10141a",
+                        "surface-bright": "#353940",
+                        "tertiary-container": "#b88900",
+                        "on-tertiary": "#402d00",
+                        "error": "#ffb4ab",
+                        "on-secondary-fixed-variant": "#004c69",
+                        "surface": "#10141a",
+                        "primary-container": "#34a547",
+                        "on-primary-fixed": "#002106",
+                        "background": "#10141a",
+                        "on-background": "#dfe2eb",
+                        "surface-container-highest": "#31353c",
+                        "on-surface-variant": "#becab9",
+                        "outline": "#889484",
+                        "tertiary-fixed-dim": "#f9bd22",
+                        "on-primary": "#00390e",
+                        "inverse-on-surface": "#2d3137",
+                        "error-container": "#93000a",
+                        "secondary": "#7bd0ff",
+                        "secondary-fixed-dim": "#7bd0ff",
+                        "secondary-fixed": "#c4e7ff",
+                        "on-tertiary-fixed": "#261a00",
+                        "on-tertiary-container": "#372700",
+                        "primary": "#6fdd78",
+                        "secondary-container": "#00a6e0",
+                        "on-error": "#690005",
+                        "inverse-primary": "#006e23",
+                        "on-error-container": "#ffdad6",
+                        "surface-container-lowest": "#0a0e14",
+                        "on-primary-container": "#00320b",
+                        "on-secondary-fixed": "#001e2c",
+                        "on-tertiary-fixed-variant": "#5c4300",
+                        "outline-variant": "#3e4a3d",
+                        "surface-container-high": "#262a31",
+                        "surface-container-low": "#181c22",
+                        "surface-tint": "#6fdd78",
+                        "surface-container": "#1c2026",
+                        "tertiary-fixed": "#ffdf9f",
+                        "on-primary-fixed-variant": "#005319",
+                        "on-secondary-container": "#00374d",
+                        "on-secondary": "#00354a",
+                        "tertiary": "#f9bd22",
+                        "inverse-surface": "#dfe2eb",
+                        "primary-fixed": "#8bfb91",
+                        "primary-fixed-dim": "#6fdd78",
+                        "surface-variant": "#31353c"
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    spacing: {
+                        "unit": "4px",
+                        "lg": "32px",
+                        "xl": "64px",
+                        "sm": "8px",
+                        "gutter": "24px",
+                        "xs": "4px",
+                        "container-max": "1000px",
+                        "md": "16px"
+                    },
+                    fontFamily: {
+                        "display-code": ["JetBrains Mono"],
+                        "ui-label": ["Geist"],
+                        "ui-header": ["Geist"],
+                        "code-lg": ["JetBrains Mono"],
+                        "code-sm": ["JetBrains Mono"],
+                        "ui-body": ["Geist"],
+                        "code-md": ["JetBrains Mono"]
+                    },
+                    fontSize: {
+                        "display-code": ["32px", { lineHeight: "48px", letterSpacing: "-0.02em", fontWeight: "500" }],
+                        "ui-label": ["12px", { lineHeight: "16px", fontWeight: "500" }],
+                        "ui-header": ["16px", { lineHeight: "24px", letterSpacing: "0.05em", fontWeight: "600" }],
+                        "code-lg": ["24px", { lineHeight: "36px", fontWeight: "400" }],
+                        "code-sm": ["14px", { lineHeight: "20px", fontWeight: "400" }],
+                        "ui-body": ["14px", { lineHeight: "20px", fontWeight: "400" }],
+                        "code-md": ["18px", { lineHeight: "28px", fontWeight: "400" }]
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-background text-on-background min-h-screen flex flex-col font-ui-body antialiased selection:bg-primary-container selection:text-on-primary-container">
+<!-- TopAppBar -->
+<header class="bg-background dark:bg-background docked full-width top-0 border-b border-outline-variant flat no shadows z-40">
+<div class="flex justify-between items-center w-full px-gutter h-16 max-w-container-max mx-auto"><div class="flex justify-between items-center w-full px-gutter h-16 max-w-container-max mx-auto">
+<!-- Logo Section -->
+<div class="flex items-center gap-sm">
+<div class="w-8 h-8 bg-primary rounded-lg flex items-center justify-center">
+<span class="material-symbols-outlined text-on-primary text-[20px]" data-icon="terminal">terminal</span>
+</div>
+<span class="font-ui-header text-ui-header font-bold tracking-tight text-on-surface">code_type</span>
+</div>
+<!-- Centered Navigation -->
+<nav class="absolute left-1/2 -translate-x-1/2 flex items-center gap-lg">
+<a class="text-primary flex flex-col items-center gap-1 group" href="#">
+<span class="material-symbols-outlined" data-icon="keyboard">keyboard</span>
+<span class="h-1 w-1 bg-primary rounded-full"></span>
+</a>
+<a class="text-on-surface-variant hover:text-on-surface transition-colors flex flex-col items-center gap-1 group" href="#">
+<span class="material-symbols-outlined" data-icon="workspace_premium">workspace_premium</span>
+<span class="h-1 w-1 bg-transparent group-hover:bg-outline-variant rounded-full"></span>
+</a>
+<a class="text-on-surface-variant hover:text-on-surface transition-colors flex flex-col items-center gap-1 group" href="#">
+<span class="material-symbols-outlined" data-icon="info">info</span>
+<span class="h-1 w-1 bg-transparent group-hover:bg-outline-variant rounded-full"></span>
+</a>
+<a class="text-on-surface-variant hover:text-on-surface transition-colors flex flex-col items-center gap-1 group" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span class="h-1 w-1 bg-transparent group-hover:bg-outline-variant rounded-full"></span>
+</a>
+</nav>
+<!-- Right Actions -->
+<div class="flex items-center gap-md">
+<button class="text-on-surface-variant hover:text-on-surface transition-colors relative">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+<span class="absolute top-0 right-0 w-2 h-2 bg-error rounded-full border-2 border-background"></span>
+</button>
+<div class="w-8 h-8 rounded-full bg-surface-container-highest border border-outline-variant overflow-hidden cursor-pointer hover:border-primary transition-colors">
+<img alt="User profile avatar" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCj7lZiafxSGhMg87B5R-xUxfK4a56pO-8vFkowwpr6Nmz-MWlbJuL8Oia5eN9x0KQ75lEowpkGxUOacKSSbbVyTIEmjifgi2qPaTxkK6F_i9pNX-CrWZ_lhtsJyZOxcdZtT1_BPPJ9hZ2UNoStTxW3an8iKyNHSXAIr4R-EHV8JKMscP8xwT_lzUPj-djK51TGxfvcSIEGCXXGN5f0iRMnaNK8FE7Qf14651fAgABGFqBm6vGZ1AQuhqsjg0L_bXi5bYSVFcniRJk"/>
+</div>
+</div>
+</div></div>
+</header>
+<!-- Main Canvas -->
+<main class="flex-grow w-full max-w-container-max mx-auto px-gutter py-xl flex flex-col gap-xl">
+<!-- Performance Header & Graph -->
+<section class="flex flex-col gap-md">
+<div class="flex items-baseline justify-between">
+<div class="flex flex-col">
+<span class="font-ui-label text-ui-label text-on-surface-variant uppercase tracking-widest">wpm</span>
+<h1 class="font-display-code text-display-code text-primary">114.2</h1>
+</div>
+<div class="flex flex-col items-end">
+<span class="font-ui-label text-ui-label text-on-surface-variant uppercase tracking-widest">raw</span>
+<h2 class="font-code-lg text-code-lg text-tertiary">118.0</h2>
+</div>
+</div>
+<!-- Graph Area -->
+<div class="w-full h-64 bg-surface-container-low border border-outline-variant rounded-DEFAULT relative overflow-hidden flex items-end pt-lg">
+<!-- Grid Lines Simulation -->
+<div class="absolute inset-0 flex flex-col justify-between p-md opacity-20 pointer-events-none">
+<div class="w-full border-b border-outline"></div>
+<div class="w-full border-b border-outline"></div>
+<div class="w-full border-b border-outline"></div>
+<div class="w-full border-b border-outline"></div>
+</div>
+<!-- Simulated Chart Line -->
+<svg class="w-full h-full text-primary" fill="none" preserveaspectratio="none" viewbox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+<path d="M0 80 Q 10 75, 20 60 T 40 40 T 60 30 T 80 15 T 100 10" stroke="currentColor" stroke-width="0.5" vector-effect="non-scaling-stroke"></path>
+<path d="M0 100 L 0 80 Q 10 75, 20 60 T 40 40 T 60 30 T 80 15 T 100 10 L 100 100 Z" fill="currentColor" fill-opacity="0.05"></path>
+</svg>
+</div>
+</section>
+<!-- Metrics Grid -->
+<section class="grid grid-cols-2 md:grid-cols-4 gap-sm">
+<div class="bg-surface-container-low border border-outline-variant rounded-DEFAULT p-md flex flex-col gap-unit">
+<span class="font-ui-label text-ui-label text-on-surface-variant">Accuracy</span>
+<span class="font-code-lg text-code-lg text-tertiary">96.4%</span>
+</div>
+<div class="bg-surface-container-low border border-outline-variant rounded-DEFAULT p-md flex flex-col gap-unit">
+<span class="font-ui-label text-ui-label text-on-surface-variant">Characters / Min</span>
+<span class="font-code-lg text-code-lg text-tertiary">571</span>
+</div>
+<div class="bg-surface-container-low border border-outline-variant rounded-DEFAULT p-md flex flex-col gap-unit">
+<span class="font-ui-label text-ui-label text-on-surface-variant">Consistency</span>
+<span class="font-code-lg text-code-lg text-tertiary">82%</span>
+</div>
+<div class="bg-surface-container-low border border-outline-variant rounded-DEFAULT p-md flex flex-col gap-unit">
+<span class="font-ui-label text-ui-label text-on-surface-variant">Time</span>
+<span class="font-code-lg text-code-lg text-tertiary">30s</span>
+</div>
+</section>
+<!-- Code Review -->
+<section class="flex flex-col gap-md">
+<div class="flex items-center justify-between border-b border-outline-variant pb-sm">
+<h3 class="font-ui-header text-ui-header text-on-surface">Code Review</h3>
+<span class="font-ui-label text-ui-label text-error bg-error-container/20 px-2 py-1 rounded-DEFAULT border border-error/30">4 Errors</span>
+</div>
+<div class="bg-surface border border-outline-variant rounded-DEFAULT p-lg font-code-md text-code-md leading-relaxed whitespace-pre-wrap overflow-x-auto text-on-surface-variant">
+<span class="text-secondary">const</span> <span class="text-primary-fixed">processData</span> = (<span class="text-tertiary">input</span>) =&gt; {
+  <span class="text-secondary">if</span> (!input) <span class="text-secondary">return</span> <span class="text-error bg-error-container/30 border-b border-error">nll</span>; <span class="text-outline text-code-sm ml-sm">// typed 'nll' instead of 'null'</span>
+<span class="text-secondary">let</span> result = <span class="text-tertiary">input</span>.map(item =&gt; {
+    <span class="text-secondary">return</span> item.<span class="text-error bg-error-container/30 border-b border-error">valu</span> * <span class="text-primary">2</span>; <span class="text-outline text-code-sm ml-sm">// missed 'e'</span>
+  });
+
+  <span class="text-secondary">return</span> result.filter(val =&gt; val &gt; <span class="text-error bg-error-container/30 border-b border-error">1000</span>); <span class="text-outline text-code-sm ml-sm">// typed '1000' instead of '100'</span>
+};</div>
+</section>
+<!-- Action Buttons -->
+<section class="flex flex-wrap items-center justify-end gap-md pt-lg">
+<button class="flex items-center gap-sm font-ui-label text-ui-label text-on-surface-variant hover:text-secondary transition-colors px-md py-sm">
+<span class="material-symbols-outlined text-[18px]" data-icon="share">share</span>
+                Share
+            </button>
+<button class="flex items-center gap-sm font-ui-label text-ui-label text-on-surface-variant border border-transparent hover:border-outline-variant rounded-DEFAULT px-lg py-sm transition-all hover:bg-surface-container-high">
+<span class="material-symbols-outlined text-[18px]" data-icon="refresh">refresh</span>
+                Try Again
+            </button>
+<button class="flex items-center gap-sm font-ui-label text-ui-label text-primary border border-primary rounded-DEFAULT px-lg py-sm transition-all hover:bg-primary hover:text-on-primary">
+<span class="material-symbols-outlined text-[18px]" data-icon="skip_next">skip_next</span>
+                Next Snippet
+            </button>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-surface-container-lowest dark:bg-surface-container-lowest docked full-width bottom-0 border-t border-outline-variant flat no shadows mt-auto">
+<div class="flex justify-between items-center px-gutter py-sm h-12 max-w-container-max mx-auto">
+<div class="font-code-sm text-on-surface-variant text-code-sm">v2.0.4-stable</div>
+<nav class="flex gap-gutter font-code-sm text-code-sm">
+<a class="text-on-surface-variant hover:text-primary transition-colors" href="#">Github</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors" href="#">Discord</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors" href="#">Terms</a>
+</nav>
+</div>
+</footer>
+</body></html>

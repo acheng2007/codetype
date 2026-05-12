@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>code_type - Typing Experience</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&amp;family=Geist:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-surface": "#dfe2eb",
+                        "surface-dim": "#10141a",
+                        "surface-bright": "#353940",
+                        "tertiary-container": "#b88900",
+                        "on-tertiary": "#402d00",
+                        "error": "#ffb4ab",
+                        "on-secondary-fixed-variant": "#004c69",
+                        "surface": "#10141a",
+                        "primary-container": "#34a547",
+                        "on-primary-fixed": "#002106",
+                        "background": "#10141a",
+                        "on-background": "#dfe2eb",
+                        "surface-container-highest": "#31353c",
+                        "on-surface-variant": "#becab9",
+                        "outline": "#889484",
+                        "tertiary-fixed-dim": "#f9bd22",
+                        "on-primary": "#00390e",
+                        "inverse-on-surface": "#2d3137",
+                        "error-container": "#93000a",
+                        "secondary": "#7bd0ff",
+                        "secondary-fixed-dim": "#7bd0ff",
+                        "secondary-fixed": "#c4e7ff",
+                        "on-tertiary-fixed": "#261a00",
+                        "on-tertiary-container": "#372700",
+                        "primary": "#6fdd78",
+                        "secondary-container": "#00a6e0",
+                        "on-error": "#690005",
+                        "inverse-primary": "#006e23",
+                        "on-error-container": "#ffdad6",
+                        "surface-container-lowest": "#0a0e14",
+                        "on-primary-container": "#00320b",
+                        "on-secondary-fixed": "#001e2c",
+                        "on-tertiary-fixed-variant": "#5c4300",
+                        "outline-variant": "#3e4a3d",
+                        "surface-container-high": "#262a31",
+                        "surface-container-low": "#181c22",
+                        "surface-tint": "#6fdd78",
+                        "surface-container": "#1c2026",
+                        "tertiary-fixed": "#ffdf9f",
+                        "on-primary-fixed-variant": "#005319",
+                        "on-secondary-container": "#00374d",
+                        "on-secondary": "#00354a",
+                        "tertiary": "#f9bd22",
+                        "inverse-surface": "#dfe2eb",
+                        "primary-fixed": "#8bfb91",
+                        "primary-fixed-dim": "#6fdd78",
+                        "surface-variant": "#31353c"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "unit": "4px",
+                        "lg": "32px",
+                        "xl": "64px",
+                        "sm": "8px",
+                        "gutter": "24px",
+                        "xs": "4px",
+                        "container-max": "1000px",
+                        "md": "16px"
+                    },
+                    "fontFamily": {
+                        "display-code": ["JetBrains Mono"],
+                        "ui-label": ["Geist"],
+                        "ui-header": ["Geist"],
+                        "code-lg": ["JetBrains Mono"],
+                        "code-sm": ["JetBrains Mono"],
+                        "ui-body": ["Geist"],
+                        "code-md": ["JetBrains Mono"]
+                    },
+                    "fontSize": {
+                        "display-code": ["32px", { "lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "500" }],
+                        "ui-label": ["12px", { "lineHeight": "16px", "fontWeight": "500" }],
+                        "ui-header": ["16px", { "lineHeight": "24px", "letterSpacing": "0.05em", "fontWeight": "600" }],
+                        "code-lg": ["24px", { "lineHeight": "36px", "fontWeight": "400" }],
+                        "code-sm": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+                        "ui-body": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+                        "code-md": ["18px", { "lineHeight": "28px", "fontWeight": "400" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .caret-glow {
+            box-shadow: 0 0 10px rgba(111, 221, 120, 0.6);
+            animation: pulse-caret 1s infinite;
+        }
+        @keyframes pulse-caret {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-ui-body text-ui-body min-h-screen flex flex-col selection:bg-primary-container selection:text-on-primary-container">
+<!-- TopAppBar -->
+<header class="w-full top-0 z-50 pt-lg">
+<div class="flex justify-between items-center w-full px-gutter h-16 max-w-[1200px] mx-auto">
+<div class="flex items-center gap-lg">
+<div class="flex items-center gap-sm">
+<span class="material-symbols-outlined text-primary text-3xl" data-icon="terminal">terminal</span>
+<a class="font-ui-header text-2xl font-semibold tracking-tight text-on-surface hover:text-primary transition-all" href="#">code_type</a>
+</div>
+</div>
+<nav class="hidden md:flex items-center gap-md text-on-surface-variant">
+<a class="hover:text-primary transition-colors flex items-center p-2 rounded-lg hover:bg-surface-container-high" href="#" title="Arena">
+<span class="material-symbols-outlined" data-icon="keyboard">keyboard</span>
+</a>
+<a class="hover:text-primary transition-colors flex items-center p-2 rounded-lg hover:bg-surface-container-high" href="#" title="Leaderboard">
+<span class="material-symbols-outlined" data-icon="social_leaderboard">social_leaderboard</span>
+</a>
+<a class="hover:text-primary transition-colors flex items-center p-2 rounded-lg hover:bg-surface-container-high" href="#" title="Info">
+<span class="material-symbols-outlined" data-icon="info">info</span>
+</a>
+<a class="hover:text-primary transition-colors flex items-center p-2 rounded-lg hover:bg-surface-container-high" href="#" title="Settings">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+</a>
+</nav>
+<div class="flex items-center gap-gutter">
+<button aria-label="notifications" class="text-on-surface-variant hover:text-primary transition-all p-2 rounded-lg hover:bg-surface-container-high">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</button>
+<div class="w-8 h-8 rounded-full bg-surface-container-high border border-outline-variant overflow-hidden cursor-pointer hover:border-primary transition-colors">
+<img alt="User profile avatar" class="w-full h-full object-cover" data-alt="A close-up studio portrait of a software developer with a neutral expression. The lighting is moody and dramatic with subtle neon green edge highlights against a pitch-black background. High contrast, modern minimalist aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuChvYqu0S57jofbzzXVhoET7wpQHo-TuahqeDFJnGOQRH911iZ-o2SxYfiIwPsAHs3_hVMM-bDULFH8mC1GKeKwCIwQarPlkHkHhdqsyqJR-lLUfX9WzXvSJF8w_aUlluhXyqcz6M0OtHjRhS77VEwMCVBzV92hCS0pec9lvUtKz-lFofUKZD8B6zQQ5ID-D00xbyszE3HemKKy19hF9CSQiMjJ6Y-QwmxqMGtlgZ_7DF4mWYb7Y4z0t588CHlP49-CyUi5PbvcC9A"/>
+</div>
+</div>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="flex-grow flex flex-col items-center justify-center px-gutter md:px-lg w-full max-w-container-max mx-auto py-xl">
+<!-- Language / Mode Selectors (Monkeytype style) -->
+<div class="flex items-center gap-md bg-surface-container-high rounded-full px-6 py-2 mb-xl font-code-sm text-code-sm text-on-surface-variant">
+<button class="flex items-center gap-xs hover:text-on-surface transition-colors">
+<span class="material-symbols-outlined text-sm" data-icon="schedule">schedule</span> time
+        </button>
+<button class="flex items-center gap-xs hover:text-on-surface transition-colors">
+<span class="material-symbols-outlined text-sm" data-icon="title">title</span> words
+        </button>
+<button class="flex items-center gap-xs hover:text-on-surface transition-colors">
+<span class="material-symbols-outlined text-sm" data-icon="format_quote">format_quote</span> quote
+        </button>
+<button class="flex items-center gap-xs hover:text-on-surface transition-colors">
+<span class="material-symbols-outlined text-sm" data-icon="landscape">landscape</span> zen
+        </button>
+<button class="flex items-center gap-xs hover:text-on-surface transition-colors">
+<span class="material-symbols-outlined text-sm" data-icon="build">build</span> custom
+        </button>
+</div>
+<!-- Live Stats Bar -->
+<div class="flex items-center justify-center gap-xs font-code-sm text-code-sm text-on-surface-variant opacity-60 mb-md">
+<span class="material-symbols-outlined text-[16px]" data-icon="public">public</span>
+<span>javascript</span>
+</div><div class="w-full flex justify-between items-center mb-lg font-code-lg text-code-lg opacity-80 transition-opacity hover:opacity-100">
+<div class="flex gap-xl">
+<div class="flex items-center gap-sm">
+<span class="text-tertiary text-3xl">114</span>
+<span class="font-ui-label text-on-surface-variant lowercase">wpm</span>
+</div>
+<div class="flex items-center gap-sm">
+<span class="text-tertiary text-3xl">98%</span>
+</div>
+</div>
+<div class="flex items-center gap-sm">
+<span class="text-tertiary text-3xl">0:12</span>
+</div>
+</div>
+<!-- Typing Area -->
+<div class="w-full relative py-lg">
+<!-- Progress Line removed to match aesthetic -->
+<div class="font-code-lg text-code-lg leading-relaxed whitespace-pre font-normal mt-md break-words text-surface-bright select-none relative max-w-3xl mx-auto">
+<span class="text-on-surface">function calculateFibonacci(n) {</span>
+<span class="text-on-surface">  if (n &lt;= 1) return n;</span>
+<span class="text-on-surface">  return calc</span><span class="relative inline-block"><span class="absolute left-0 top-0 w-[2px] h-full bg-primary caret-glow z-10"></span><span class="text-primary border-b-2 border-error">u</span></span><span class="text-surface-bright">lateFibonacci(n - 1) + calculateFibonacci(n - 2);</span>
+<span class="text-surface-bright">}</span>
+</div>
+</div>
+<!-- Quick Action Bar -->
+<div class="mt-xl flex items-center justify-center gap-md flex-col">
+<button aria-label="Restart" class="p-2 text-on-surface-variant hover:text-on-surface transition-colors rounded-full hover:bg-surface-container-high">
+<span class="material-symbols-outlined text-2xl" data-icon="refresh">refresh</span>
+</button>
+<div class="text-xs text-on-surface-variant opacity-50 mt-md">tab + enter - restart test</div>
+</div>
+</main>
+<!-- Footer -->
+<footer class="w-full bottom-0 z-50 mb-sm">
+<div class="flex justify-between items-center px-gutter py-sm h-12 max-w-container-max mx-auto w-full">
+<div class="font-code-sm text-code-sm text-on-surface-variant opacity-60 hover:opacity-100 transition-opacity">
+                v2.0.4-stable
+            </div>
+<div class="flex items-center gap-gutter font-code-sm text-code-sm opacity-60">
+<a class="text-on-surface-variant hover:text-on-surface transition-colors" href="#">Github</a>
+<a class="text-on-surface-variant hover:text-on-surface transition-colors" href="#">Discord</a>
+<a class="text-on-surface-variant hover:text-on-surface transition-colors" href="#">Terms</a>
+</div>
+</div>
+</footer>
+</body></html>
