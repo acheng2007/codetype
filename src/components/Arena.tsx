@@ -17,7 +17,11 @@ import {
   type EngineState,
 } from "@/lib/engine";
 import { loadHistory, personalBestWpm, saveResult } from "@/lib/history";
-import { randomMediumSnippet, randomSnippet } from "@/lib/snippets";
+import {
+  defaultMediumSnippet,
+  randomMediumSnippet,
+  randomSnippet,
+} from "@/lib/snippets";
 import type {
   Language,
   Mode,
@@ -34,14 +38,14 @@ export function Arena() {
   const [mode, setMode] = useState<Mode>("snippet");
   const [duration, setDuration] = useState<TimeDuration>(30);
   const [snippet, setSnippet] = useState<Snippet>(() =>
-    randomMediumSnippet("javascript"),
+    defaultMediumSnippet("javascript"),
   );
   const [snippetIds, setSnippetIds] = useState<string[]>([]);
   const [engine, setEngine] = useState<EngineState>(() =>
     createEngineState(snippet.code),
   );
   const [phase, setPhase] = useState<Phase>("idle");
-  const [now, setNow] = useState<number>(() => performance.now());
+  const [now, setNow] = useState(0);
   const [result, setResult] = useState<TestResult | null>(null);
   const [personalBest, setPersonalBest] = useState<number>(0);
   const [focused, setFocused] = useState<boolean>(true);
@@ -56,6 +60,7 @@ export function Arena() {
   // Keep an "elapsed" tick going while running so we can detect time-up.
   useEffect(() => {
     if (phase !== "running") return;
+    setNow(performance.now());
     const id = setInterval(() => setNow(performance.now()), 100);
     return () => clearInterval(id);
   }, [phase]);

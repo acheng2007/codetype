@@ -39,11 +39,8 @@ export function randomSnippet(
 
 const MEDIUM_LINE_BOUNDS = { min: 5, max: 18 };
 
-export function randomMediumSnippet(
-  language: Language,
-  excludeId?: string,
-): Snippet {
-  const pool = snippetsFor(language).filter((s) => {
+function mediumPool(language: Language, excludeId?: string): Snippet[] {
+  return snippetsFor(language).filter((s) => {
     const lines = s.code.split("\n").filter(Boolean).length;
     return (
       lines >= MEDIUM_LINE_BOUNDS.min &&
@@ -51,6 +48,21 @@ export function randomMediumSnippet(
       s.id !== excludeId
     );
   });
+}
+
+/** Stable snippet for SSR/hydration; random selection runs client-side after mount. */
+export function defaultMediumSnippet(language: Language): Snippet {
+  const pool = mediumPool(language);
+  const source = pool.length > 0 ? pool : snippetsFor(language);
+  const sorted = [...source].sort((a, b) => a.id.localeCompare(b.id));
+  return withTypingLanguage(sorted[0], language);
+}
+
+export function randomMediumSnippet(
+  language: Language,
+  excludeId?: string,
+): Snippet {
+  const pool = mediumPool(language, excludeId);
   if (pool.length === 0) return randomSnippet(language, excludeId);
   return withTypingLanguage(
     pool[Math.floor(Math.random() * pool.length)],
